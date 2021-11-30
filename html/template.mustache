@@ -1,0 +1,60 @@
+<h1>{{name}} <span style="font-size: 0.5em;">(token {{token_id}} of <kbd>{{ collection.name }}</kbd>)</span></h1>
+<div class="columns">
+    <div>
+        {{#animation_url}}
+            <video autoplay controls loop src="{{animation_url}}" id="img"></video>
+        {{/animation_url}}
+        {{^animation_url}}
+            <img src="{{image_url}}" id="img">
+        {{/animation_url}}
+
+        <div class="card">
+            <h2>Owner</h2>
+            <p><a href="{{ customData.site }}" style="text-decoration: none;">{{ customData.name }}</a> (<span
+                    class="mono" data-address="{{customData.address}}">{{ customData.address }}</span>)
+                <kbd>verified</kbd>
+            </p>
+        </div>
+
+    </div>
+    <div>
+        <div class="card">
+            <h2>About</h2>
+            {{#descriptionLines}}
+                <p>{{.}}</p>
+            {{/descriptionLines}}
+        </div>
+        <div class="card">
+            <h2>Collection</h2>
+            <img id="collection-img" src="{{ asset_contract.image_url }}">
+            <p>Name: <kbd>{{ collection.name }}</kbd> (contract <kbd>{{ asset_contract.name }}</kbd>)</p>
+            <p>Contract address (<kbd>ETH</kbd>): <span class="mono" data-address="{{ asset_contract.address }}">{{ asset_contract.address }}</span></p>
+            <p>Created: <span class="mono">{{ asset_contract.created_date }}</span></p>
+            <p>Creator: <span class="mono" data-address="{{ creator.address }}">{{ creator.address }}</span></p>
+            <p>External link: <a href="{{ asset_contract.external_link }}">{{ asset_contract.external_link }}</a></p>
+        </div>
+        <div class="card">
+            <h2>Transactions</h2>
+            <div id="tx-wrap">
+                <table>
+                    <thead>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Date</th>
+                        <th>Price</th>
+                    </thead>
+                    <tbody>
+                        {{#events.asset_events}}
+                        <tr>
+                            <td data-address="{{seller.address}}">{{ seller.user.username}}</span></td>
+                            <td data-address="{{winner_account.address}}">{{ winner_account.user.username }}</span></td>
+                            <td>{{ created_date }}</td>
+                            <td>{{ totalEth }} <kbd>ETH</kbd> (${{ totalUsd }})</td>
+                        </tr>
+                        {{/events.asset_events}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

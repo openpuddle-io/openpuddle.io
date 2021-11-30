@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/index.css" rel="stylesheet">
+    <link href="/favicon.png" rel="icon">
+    <title>OpenPuddle, the cheapest NFT marketplace</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/about.html" style="align-items: center; display: flex;"><img src="/favicon.png">OpenPuddle</a></li>
+            <li><a href="/create.html">Create</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <h1>Buy an NFT</h1>
+        <p>Currently, OpenPuddle only supports NFTs listed on <a href="https://opensea.io/">OpenSea</a>. The NFT URL must look like <span class="mono">https://opensea.io/assets/[asset contract ID]/[token ID]</span> (<a href="https://opensea.io/assets/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/1">sample URL</a>).</p>
+        <div class="card" >
+            <h2>Details</h2>
+
+            <form>
+                <p id="error" style="display: none"></p>
+                <label>
+                    NFT URL <input required type="url" name="url" pattern="https://opensea.io/assets/[^/]+/[^/]+/?">
+                </label>
+
+                <label>
+                    Your name <input required type="text" name="name">
+                </label>
+
+                <label>
+                    Your wallet address <input required type="text" name="address"> 
+                </label>
+
+                <label>
+                    Link to your site/twitter/... <input type="url" name="site">
+                </label>
+
+                <button type="submit">&ldquo;Buy&rdquo;</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/create.js"></script>
+</body>
+
+</html>

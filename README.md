@@ -11,7 +11,7 @@ The site has two components:
 
 ## Deployment
 
-OpenPuddle is designed to be deployed behind a reverse proxy. `GET` requests should be routed to the `html/` directory, while `POST` requests should be routed to the node app. A sample nginx config `openpuddle-nginx.conf` is included in the repo.
+OpenPuddle is designed to be deployed behind a reverse proxy. `GET` requests should be routed to the `html/` directory, while `POST` requests to `/create` should be routed to the node app. A sample nginx config `openpuddle-nginx.conf` is included in the repo.
 
 ## Rate-Limiting / API Authentication
 
