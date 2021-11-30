@@ -9,6 +9,8 @@ The site has two components:
 - static content + client-side scripting for all read operations (vanilla JS) (under `html/`)
 - a server-side component to download token data (a node script `app.js`)
 
+![](openpuddle.drawio.svg)
+
 ## Deployment
 
 OpenPuddle is designed to be deployed behind a reverse proxy. `GET` requests should be routed to the `html/` directory, while `POST` requests to `/create` should be routed to the node app. A sample nginx config `openpuddle-nginx.conf` is included in the repo.
